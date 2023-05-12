@@ -10,7 +10,7 @@
 
 .header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +30,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.section {
+  flex: 1;
+}
+
+.rust {
+  background-color: darksalmon;
+}
+
+.node {
+  background-color: darkolivegreen;
 }

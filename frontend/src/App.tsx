@@ -1,25 +1,28 @@
 import type { Component } from "solid-js";
 
-import logo from "./logo.svg";
 import styles from "./App.module.css";
+import clsx from "clsx";
+import { Backends, FetchingProvider } from "./fetching-context";
+import TestComponent from "./components/test";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
+        <h1>Backend comparison</h1>
       </header>
+      <FetchingProvider>
+        <main class={clsx(styles.main)}>
+          <section class={clsx(styles.section, styles.node)}>
+            <h2>Node.js</h2>
+            <TestComponent backend={Backends.Node} />
+          </section>
+          <section class={clsx(styles.section, styles.rust)}>
+            <h2>Rust</h2>
+            <TestComponent backend={Backends.Rust} />
+          </section>
+        </main>
+      </FetchingProvider>
     </div>
   );
 };
